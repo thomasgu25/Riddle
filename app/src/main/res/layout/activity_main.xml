@@ -12,7 +12,7 @@
         android:layout_height="44dp"
         android:layout_marginStart="116dp"
         android:layout_marginTop="36dp"
-        android:text="猜字謎遊戲"
+        android:text="@string/app_title"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +22,7 @@
         android:layout_height="37dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="44dp"
-        android:text="謎題"
+        android:text="@string/tv_riddle"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
         android:layout_height="34dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="24dp"
-        android:text="猜字："
+        android:text="@string/tv2"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/tv_riddle"
         app:layout_constraintTop_toBottomOf="@+id/tv_riddle" />
@@ -43,61 +43,93 @@
         android:layout_width="132dp"
         android:layout_height="50dp"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="您的答案"
+        android:hint="@string/hint"
         android:inputType="textPersonName"
         android:textColorHint="#78909C"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintStart_toEndOf="@+id/textView2" />
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_riddle"
+        app:layout_constraintVertical_bias="0.0"
+        android:autofillHints="" />
 
-    <Button
-        android:id="@+id/btn_riddle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="出題"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <Button
-        android:id="@+id/btn_answer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:text="答題"
-        app:layout_constraintStart_toEndOf="@+id/btn_riddle"
-        app:layout_constraintTop_toTopOf="@+id/btn_riddle" />
-
-    <Button
-        android:id="@+id/btn_reAnswer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:text="重答"
-        app:layout_constraintStart_toEndOf="@+id/btn_answer"
-        app:layout_constraintTop_toTopOf="@+id/btn_answer" />
-
-    <Button
-        android:id="@+id/btn_showAnswer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:text="看謎底"
-        app:layout_constraintStart_toEndOf="@+id/btn_reAnswer"
-        app:layout_constraintTop_toTopOf="@+id/btn_reAnswer" />
-
-    <TextView
-        android:id="@+id/tv_result"
-        android:layout_width="326dp"
-        android:layout_height="48dp"
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="324dp"
+        android:layout_height="197dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="28dp"
-        android:text="結果"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:layout_marginTop="17dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_answer" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/lantern_festival"
+            android:contentDescription="@string/btn_reAnswer" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="326dp"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginStart="0dp"
+            android:text="@string/tv_result"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="408dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="22dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+
+        <Button
+            android:id="@+id/btn_riddle"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="@string/btn_riddle" />
+
+        <Button
+            android:id="@+id/btn_answer"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="@string/btn_answer" />
+
+        <Button
+            android:id="@+id/btn_reAnswer"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="@string/btn_reAnswer"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <Button
+            android:id="@+id/btn_showAnswer"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/btn_showAnswer" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
